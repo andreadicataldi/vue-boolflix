@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Boolflix</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
@@ -22,6 +28,10 @@
           <span class="original-title">{{movie.original_title}}</span>
           <span class="original-language">{{movie.original_language}}</span>
           <span class="vote-average">{{movie.vote_average}}</span>
+          <span class="vote-stars">
+            <i class="fas fa-star" v-for="rating in movie.vote_average"></i>
+            <i class="far fa-star" v-for="rating in 5 - movie.vote_average"></i>
+          </span>
         </div>
       </div>
     </div>
