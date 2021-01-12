@@ -8,19 +8,21 @@
   </head>
   <body>
     <div class="wrapper" id="app">
-      <div class="search">
-        <input type="text" id="searchText" v-model="searchText" />
-        <button @click="getMovies(searchText)">Cerca</button>
-      </div>
-      <div class="movies">
-        <ul>
-          <li v-for="movie in movies">
-            <p>Titolo: {{movie.title}}</p>
-            <p>Titolo Originale: {{movie.original_title}}</p>
-            <p>Lingua: {{movie.original_language}}</p>
-            <p>Voto: {{movie.vote_average}}</p>
-          </li>
-        </ul>
+      <header>
+        <div class="container">
+          <img src="assets/img/Netflix_2015_logo.svg" alt="logo" />
+          <input type="text" v-model="searchText" />
+          <button @click="getMovies(searchText)">Search</button>
+        </div>
+      </header>
+
+      <div class="movies-container container">
+        <div class="movie" v-for="movie in movies">
+          <h3>{{movie.title}}</h3>
+          <span class="original-title">{{movie.original_title}}</span>
+          <span class="original-language">{{movie.original_language}}</span>
+          <span class="vote-average">{{movie.vote_average}}</span>
+        </div>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>

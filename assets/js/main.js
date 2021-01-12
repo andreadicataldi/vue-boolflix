@@ -3,6 +3,7 @@ let app = new Vue({
   data: {
     movies: [],
     searchText: "",
+    counter: 0,
   },
   methods: {
     getMovies(searchText) {
@@ -13,6 +14,13 @@ let app = new Vue({
         )
         .then((response) => {
           this.movies = response.data.results;
+          this.movies.forEach((element) => {
+            let score = Math.ceil(element.vote_average / 2);
+            element.vote_average = score;
+          });
+        })
+        .catch((error) => {
+          console.log(error);
         });
     },
   },
