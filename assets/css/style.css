@@ -74,7 +74,10 @@ header button {
   font-size: 20px;
 }
 
-.movie span.original-language,
 .movie span.vote-average {
   color: grey;
+}
+
+img.language {
+  height: 30px;
 }

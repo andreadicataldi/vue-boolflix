@@ -26,7 +26,11 @@
         <div class="movie" v-for="movie in movies">
           <h3>{{movie.title}}</h3>
           <span class="original-title">{{movie.original_title}}</span>
-          <span class="original-language">{{movie.original_language}}</span>
+          <img
+            class="language"
+            :src="`assets/img/${movie.original_language}.svg`"
+            :alt="`${movie.original_language}`"
+          />
           <span class="vote-average">{{movie.vote_average}}</span>
           <span class="vote-stars">
             <i class="fas fa-star" v-for="rating in movie.vote_average"></i>
