@@ -22,47 +22,61 @@
         </div>
       </header>
 
+      <h3 v-if="movies.length > 0">MOVIES</h3>
       <div class="movies-container container">
         <div class="movie" v-for="movie in movies">
-          <img
-            class="cover"
-            :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`"
-            alt=""
-          />
-          <h3>{{movie.title}}</h3>
-          <span class="original-title">{{movie.original_title}}</span>
-          <img
-            class="language"
-            :src="`assets/img/${movie.original_language}.png`"
-            :alt="`${movie.original_language}`"
-          />
-          <span class="vote-average">{{movie.vote_average}}</span>
-          <span class="vote-stars">
-            <i class="fas fa-star" v-for="rating in movie.vote_average"></i>
-            <i class="far fa-star" v-for="rating in 5 - movie.vote_average"></i>
-          </span>
+          <div class="cover">
+            <img
+              :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`"
+              alt=""
+            />
+          </div>
+          <div class="info">
+            <h3>{{movie.title}}</h3>
+            <span class="original-title">{{movie.original_title}}</span>
+            <img
+              class="language"
+              :src="`assets/img/${movie.original_language}.png`"
+              :alt="`${movie.original_language}`"
+            />
+            <span class="vote-stars">
+              <i class="fas fa-star" v-for="rating in movie.vote_average"></i>
+              <i
+                class="far fa-star"
+                v-for="rating in 5 - movie.vote_average"
+              ></i>
+            </span>
+          </div>
         </div>
       </div>
 
+      <h3 v-if="series.length > 0">TV SERIES</h3>
       <div class="series-container container">
         <div class="serie" v-for="serie in series">
-          <img
-            class="cover"
-            :src="`https://image.tmdb.org/t/p/w342${serie.poster_path}`"
-            alt=""
-          />
-          <h3>{{serie.name}}</h3>
-          <span class="original-title">{{serie.original_name}}</span>
-          <img
-            class="language"
-            :src="`assets/img/${serie.original_language}.png`"
-            :alt="`${serie.original_language}`"
-          />
-          <span class="vote-average">{{serie.vote_average}}</span>
-          <span class="vote-stars">
-            <i class="fas fa-star" v-for="rating in serie.vote_average"></i>
-            <i class="far fa-star" v-for="rating in 5 - serie.vote_average"></i>
-          </span>
+          <div class="cover">
+            <img
+              class="cover"
+              :src="`https://image.tmdb.org/t/p/w342${serie.poster_path}`"
+              alt=""
+            />
+          </div>
+          <div class="info">
+            <h3>{{serie.name}}</h3>
+            <span class="original-title">{{serie.original_name}}</span>
+            <img
+              class="language"
+              :src="`assets/img/${serie.original_language}.png`"
+              :alt="`${serie.original_language}`"
+            />
+            <span class="vote-average">{{serie.vote_average}}</span>
+            <span class="vote-stars">
+              <i class="fas fa-star" v-for="rating in serie.vote_average"></i>
+              <i
+                class="far fa-star"
+                v-for="rating in 5 - serie.vote_average"
+              ></i>
+            </span>
+          </div>
         </div>
       </div>
     </div>
