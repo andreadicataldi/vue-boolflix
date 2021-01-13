@@ -16,7 +16,7 @@
     <div class="wrapper" id="app">
       <header>
         <div class="container">
-          <img src="assets/img/Netflix_2015_logo.svg" alt="logo" />
+          <img src="assets/img/boolflix.png" alt="logo" />
           <input type="text" v-model="searchText" />
           <button @click="getMovies(searchText)">Search</button>
         </div>
@@ -28,13 +28,30 @@
           <span class="original-title">{{movie.original_title}}</span>
           <img
             class="language"
-            :src="`assets/img/${movie.original_language}.svg`"
+            :src="`assets/img/${movie.original_language}.png`"
             :alt="`${movie.original_language}`"
           />
           <span class="vote-average">{{movie.vote_average}}</span>
           <span class="vote-stars">
             <i class="fas fa-star" v-for="rating in movie.vote_average"></i>
             <i class="far fa-star" v-for="rating in 5 - movie.vote_average"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="series-container container">
+        <div class="serie" v-for="serie in series">
+          <h3>{{serie.name}}</h3>
+          <span class="original-title">{{serie.original_name}}</span>
+          <img
+            class="language"
+            :src="`assets/img/${serie.original_language}.png`"
+            :alt="`${serie.original_language}`"
+          />
+          <span class="vote-average">{{serie.vote_average}}</span>
+          <span class="vote-stars">
+            <i class="fas fa-star" v-for="rating in serie.vote_average"></i>
+            <i class="far fa-star" v-for="rating in 5 - serie.vote_average"></i>
           </span>
         </div>
       </div>

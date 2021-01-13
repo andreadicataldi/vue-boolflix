@@ -37,7 +37,8 @@ header button {
   height: 30px;
 }
 
-.movies-container {
+.movies-container,
+.series-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +46,8 @@ header button {
   padding: 100px 0;
 }
 
-.movie {
+.movie,
+.serie {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -58,23 +60,27 @@ header button {
   text-align: center;
 }
 
-.movie img {
+.movie img,
+.serie img {
   max-width: 100%;
 }
 
-.movie h3 {
+.movie h3,
+.serie h3 {
   margin: 20px 0;
   color: white;
   font-size: 22px;
   text-transform: uppercase;
 }
 
-.movie span.original-title {
+.movie span.original-title,
+.serie span.original-title {
   color: grey;
   font-size: 20px;
 }
 
-.movie span.vote-average {
+.movie span.vote-average,
+.serie span.vote-average {
   color: grey;
 }
 
