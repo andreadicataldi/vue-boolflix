@@ -24,6 +24,11 @@
 
       <div class="movies-container container">
         <div class="movie" v-for="movie in movies">
+          <img
+            class="cover"
+            :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`"
+            alt=""
+          />
           <h3>{{movie.title}}</h3>
           <span class="original-title">{{movie.original_title}}</span>
           <img
@@ -41,6 +46,11 @@
 
       <div class="series-container container">
         <div class="serie" v-for="serie in series">
+          <img
+            class="cover"
+            :src="`https://image.tmdb.org/t/p/w342${serie.poster_path}`"
+            alt=""
+          />
           <h3>{{serie.name}}</h3>
           <span class="original-title">{{serie.original_name}}</span>
           <img
