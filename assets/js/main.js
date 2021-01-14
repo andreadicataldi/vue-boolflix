@@ -10,7 +10,7 @@ let app = new Vue({
     getMovies: function (searchText) {
       axios
         .get(
-          "https://api.themoviedb.org/3/search/movie?api_key=1a404737bd28f16647b6ba305c98e1ed&language=it-IT&page=1&include_adult=true&query=" +
+          "https://api.themoviedb.org/3/search/movie?api_key=1a404737bd28f16647b6ba305c98e1ed&language=it-IT&page=1&query=" +
             searchText
         )
         .then((response) => {
@@ -25,7 +25,7 @@ let app = new Vue({
         });
       axios
         .get(
-          "https://api.themoviedb.org/3/search/tv?api_key=1a404737bd28f16647b6ba305c98e1ed&language=it_IT&include_adult=true&query=" +
+          "https://api.themoviedb.org/3/search/tv?api_key=1a404737bd28f16647b6ba305c98e1ed&language=it_IT&query=" +
             searchText
         )
         .then((response) => {
