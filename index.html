@@ -21,7 +21,7 @@
     <div class="wrapper" id="app">
       <nav>
         <div class="nav-left">
-          <img src="assets/img/boolflix.png" alt="logo" />
+          <img src="assets/img/boolflix.png" alt="logo" @click="reloadPage()" />
           <ul>
             <li><strong>Home</strong></li>
             <li>Serie TV</li>
@@ -37,6 +37,7 @@
             v-model="searchText"
             value="lost"
             placeholder="Cosa vuoi guardare oggi?"
+            @keyup.enter="getMovies(searchText)"
           />
           <i @click="getMovies(searchText)" class="fas fa-search search"></i>
           <span class="children">BAMBINI</span>
