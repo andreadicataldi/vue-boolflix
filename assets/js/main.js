@@ -43,4 +43,7 @@ let app = new Vue({
       location.reload();
     },
   },
+  mounted() {
+    this.getMovies("a");
+  },
 });
