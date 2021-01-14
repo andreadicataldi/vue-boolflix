@@ -10,75 +10,109 @@
       integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
     <div class="wrapper" id="app">
-      <header>
-        <div class="container">
+      <nav>
+        <div class="nav-left">
           <img src="assets/img/boolflix.png" alt="logo" />
-          <input type="text" v-model="searchText" />
-          <button @click="getMovies(searchText)">Search</button>
+          <ul>
+            <li><strong>Home</strong></li>
+            <li>Serie TV</li>
+            <li>Film</li>
+            <li>Originali</li>
+            <li>Aggiunti di recente</li>
+            <li>La mia lista</li>
+          </ul>
         </div>
-      </header>
-
-      <h3 v-if="movies.length > 0">MOVIES</h3>
-      <div class="movies-container container">
-        <div class="movie" v-for="movie in movies">
-          <div class="cover">
-            <img
-              :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`"
-              alt=""
-            />
-          </div>
-          <div class="info">
-            <h3>{{movie.title}}</h3>
-            <span class="original-title">{{movie.original_title}}</span>
-            <img
-              class="language"
-              :src="`assets/img/${movie.original_language}.png`"
-              :alt="`${movie.original_language}`"
-            />
-            <span class="vote-stars">
-              <i class="fas fa-star" v-for="rating in movie.vote_average"></i>
-              <i
-                class="far fa-star"
-                v-for="rating in 5 - movie.vote_average"
-              ></i>
-            </span>
-          </div>
+        <div class="nav-right">
+          <input
+            type="text"
+            v-model="searchText"
+            value="lost"
+            placeholder="Cosa vuoi guardare oggi?"
+          />
+          <i @click="getMovies(searchText)" class="fas fa-search search"></i>
+          <span class="children">BAMBINI</span>
+          <i class="fas fa-bell bell"></i>
+          <img class="avatar" src="./assets/img/avatar.png" alt="" />
+          <i class="fas fa-sort-down down"></i>
         </div>
-      </div>
-
-      <h3 v-if="series.length > 0">TV SERIES</h3>
-      <div class="series-container container">
-        <div class="serie" v-for="serie in series">
-          <div class="cover">
-            <img
-              class="cover"
-              :src="`https://image.tmdb.org/t/p/w342${serie.poster_path}`"
-              alt=""
-            />
-          </div>
-          <div class="info">
-            <h3>{{serie.name}}</h3>
-            <span class="original-title">{{serie.original_name}}</span>
-            <img
-              class="language"
-              :src="`assets/img/${serie.original_language}.png`"
-              :alt="`${serie.original_language}`"
-            />
-            <span class="vote-average">{{serie.vote_average}}</span>
-            <span class="vote-stars">
-              <i class="fas fa-star" v-for="rating in serie.vote_average"></i>
-              <i
-                class="far fa-star"
-                v-for="rating in 5 - serie.vote_average"
-              ></i>
-            </span>
+      </nav>
+      <main>
+        <h3 class="section-title" v-if="movies.length > 0">FILM</h3>
+        <div class="movie-container">
+          <div class="movie-card" v-for="movie in movies">
+            <div class="movie-cover">
+              <img
+                src="./assets/img/comingsoon.png"
+                alt=""
+                v-if="movie.poster_path == null"
+              />
+              <img
+                :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`"
+                alt=""
+              />
+            </div>
+            <div class="movie-info">
+              <h3>{{movie.title}}</h3>
+              <span class="original-title">{{movie.original_title}}</span>
+              <img
+                class="language"
+                :src="`assets/img/${movie.original_language}.png`"
+                :alt="`${movie.original_language}`"
+              />
+              <span class="vote-stars">
+                <i class="fas fa-star" v-for="rating in movie.vote_average"></i>
+                <i
+                  class="far fa-star"
+                  v-for="rating in 5 - movie.vote_average"
+                ></i>
+              </span>
+              <span class="overview">{{movie.overview}}</span>
+            </div>
           </div>
         </div>
-      </div>
+        <h3 class="section-title" v-if="series.length > 0">SERIE TV</h3>
+        <div class="serie-container">
+          <div class="serie-card" v-for="serie in series">
+            <div class="serie-cover">
+              <img
+                src="./assets/img/comingsoon.png"
+                alt=""
+                v-if="serie.poster_path == null"
+              />
+              <img
+                class="cover"
+                :src="`https://image.tmdb.org/t/p/w342${serie.poster_path}`"
+                alt=""
+              />
+            </div>
+            <div class="serie-info">
+              <h3>{{serie.name}}</h3>
+              <span class="original-title">{{serie.original_name}}</span>
+              <img
+                class="language"
+                :src="`assets/img/${serie.original_language}.png`"
+                :alt="`${serie.original_language}`"
+              />
+              <span class="vote-stars">
+                <i class="fas fa-star" v-for="rating in serie.vote_average"></i>
+                <i
+                  class="far fa-star"
+                  v-for="rating in 5 - serie.vote_average"
+                ></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
