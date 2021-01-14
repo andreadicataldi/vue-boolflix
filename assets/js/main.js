@@ -25,7 +25,7 @@ let app = new Vue({
         });
       axios
         .get(
-          "https://api.themoviedb.org/3/search/tv?api_key=1a404737bd28f16647b6ba305c98e1ed&language=it_IT&query=" +
+          "https://api.themoviedb.org/3/search/tv?api_key=1a404737bd28f16647b6ba305c98e1ed&language=it&query=" +
             searchText
         )
         .then((response) => {
