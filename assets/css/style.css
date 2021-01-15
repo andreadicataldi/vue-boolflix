@@ -27,8 +27,9 @@ i {
 }
 
 nav img {
-  height: 50px;
+  height: 40px;
   cursor: pointer;
+  margin-top: 5px;
 }
 
 .nav-left {
@@ -104,7 +105,6 @@ nav img {
 
 .movie-card,
 .serie-card {
-  margin: 0px 2px;
   height: 513px;
   width: 342px;
   min-height: 513px;
@@ -122,6 +122,7 @@ nav img {
 .serie-cover img {
   width: 100%;
   height: 100%;
+  border-radius: 5px;
 }
 
 .movie-info,
@@ -129,6 +130,7 @@ nav img {
   background: #35303080;
   width: 100%;
   height: 100%;
+  border-radius: 5px;
 }
 
 .language {
