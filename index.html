@@ -64,7 +64,11 @@
             </div>
             <div class="movie-info">
               <h3>{{movie.title}}</h3>
-              <span class="original-title">{{movie.original_title}}</span>
+              <span
+                v-if="movie.original_title !== movie.title"
+                class="original-title"
+                >{{movie.original_title}}</span
+              >
               <img
                 class="language"
                 :src="`assets/img/${movie.original_language}.png`"
@@ -98,7 +102,11 @@
             </div>
             <div class="serie-info">
               <h3>{{serie.name}}</h3>
-              <span class="original-title">{{serie.original_name}}</span>
+              <span
+                v-if="serie.original_name !== serie.name"
+                class="original-title"
+                >{{serie.original_name}}</span
+              >
               <img
                 class="language"
                 :src="`assets/img/${serie.original_language}.png`"
