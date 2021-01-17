@@ -60,6 +60,7 @@
               <img
                 :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`"
                 alt=""
+                v-if="movie.poster_path !== null"
               />
             </div>
             <div class="movie-info">

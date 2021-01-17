@@ -102,6 +102,7 @@ nav img {
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 50px;
+  height: 580px;
 }
 
 .movie-card,
@@ -110,13 +111,15 @@ nav img {
   width: 342px;
   min-height: 513px;
   min-width: 342px;
-  padding: 5px;
+  margin: 5px;
+  position: relative;
 }
 
 .movie-cover,
 .serie-cover {
-  width: 100%;
   height: 100%;
+  width: 100%;
+  border-radius: 5px;
 }
 
 .movie-cover img,
@@ -128,10 +131,12 @@ nav img {
 
 .movie-info,
 .serie-info {
-  background: #181818;
   width: 100%;
   height: 100%;
   border-radius: 5px;
+  position: absolute;
+  padding: 10px;
+  top: 0;
 }
 
 .language {
@@ -147,18 +152,19 @@ nav img {
 .movie-card:hover,
 .serie-card:hover {
   cursor: pointer;
+  z-index: 1;
+  transform: scale(1.05);
+  transition: ease 0.5s;
+  transition-delay: 0.1s;
 }
 
-.movie-card:hover .movie-cover {
-  display: none;
+.movie-card:hover .movie-cover,
+.serie-card:hover .serie-cover {
+  opacity: 0.05;
 }
 
 .movie-card:hover .movie-info {
   display: flex;
-}
-
-.serie-card:hover .serie-cover {
-  display: none;
 }
 
 .serie-card:hover .serie-info {
@@ -193,7 +199,7 @@ nav img {
   height: 9px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #403a3a;
+  background: #2e2a2a;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
