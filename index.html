@@ -91,14 +91,15 @@
           <div class="serie-card" v-for="serie in series">
             <div class="serie-cover">
               <img
-                src="./assets/img/comingsoon.png"
-                alt=""
-                v-if="serie.poster_path == null"
-              />
-              <img
                 class="cover"
                 :src="`https://image.tmdb.org/t/p/w342${serie.poster_path}`"
                 alt=""
+                v-if="serie.poster_path !== null"
+              />
+              <img
+                src="./assets/img/comingsoon.png"
+                alt=""
+                v-if="serie.poster_path == null"
               />
             </div>
             <div class="serie-info">
